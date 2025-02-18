@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script>
+        // Function to fetch blockchain data
+        function fetchBlockchain() {
+            fetch('/chain')
+                .then(response => response.json())
+                .then(data => {
+                    const chainContainer = document.getElementById("blockchain-chain");
+                    const chain = data.chain;
+                    let tableHTML = "<table border='1'><thead><tr><th>Index</th><th>Timestamp</th><th>Votes</th><th>Proof</th><th>Previous Hash</th></tr></thead><tbody>";
+                    
+                    chain.forEach(block => {
+                        tableHTML += `<tr>
+                                        <td>${block.index}</td>
+                                        <td>${block.timestamp}</td>
+                                        <td>${JSON.stringify(block.votes)}</td>
+                                        <td>${block.proof}</td>
+                                        <td>${block.previous_hash}</td>
+                                      </tr>`;
+                    });
+
+                    tableHTML += "</tbody></table>";
+                    chainContainer.innerHTML = tableHTML;
+                })
+                .catch(error => {
+                    console.error("Error fetching blockchain:", error);
+                });
+        }
+
+        // Call the fetchBlockchain function once the page loads
+        window.onload = fetchBlockchain;
+    </script>
+</head>
+<body>
+    <h1>Thank you for voting!</h1>
+    <p>Your vote has been successfully recorded.</p>
+
+    <!-- Display blockchain chain -->
+    <h2>Current Blockchain</h2>
+    <div id="blockchain-chain"></div>
+</body>
+</html>

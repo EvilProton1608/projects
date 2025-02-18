@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Voting System For Student Council Election</h1>
+    <form action="/vote" method="post">
+        <label for="voter_id">Voter ID:(Student ID)</label>
+        <input type="text" name="voter_id" required><br><br>
+
+        <label for="vote_choice">Select a Candidate:</label>
+        <select name="vote_choice" required>
+            {% for candidate in candidates %}
+                <option value="{{ candidate }}">{{ candidate }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Submit Vote</button>
+    </form>
+</body>
+</html>

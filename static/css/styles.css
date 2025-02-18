@@ -1,0 +1,340 @@
+/* General Styles */
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #003d80;
+    --text-color-dark: #333;
+    --text-color-light: #444;
+    --background-color-light: #f9f9f9;
+    --background-color-dark: #333;
+    --border-color: #ccc;
+    --box-shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color-dark);
+    background-color: var(--background-color-light);
+    background-image: url('votingpic.jpg'); /* Adjust the path if needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;  /* Ensure full height */
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 30px 0; /* More spacing for a desktop layout */
+    position: sticky;
+    top: 0; /* Sticky header */
+    z-index: 1000;
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px; /* More padding for desktop screens */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px; /* Bigger font for desktop */
+    font-weight: 600;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px; /* More gap between nav items */
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px; /* Larger padding */
+    border-radius: 8px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    background-color: var(--secondary-color);
+    transform: scale(1.1); /* Slightly bigger hover effect */
+}
+
+header nav ul li a:focus {
+    outline: 2px solid var(--secondary-color);
+}
+
+/* Main Content Styles */
+main {
+    padding: 60px 40px; /* Larger padding for desktop layout */
+    text-align: center;
+    flex-grow: 1; /* Make sure content takes up remaining space */
+}
+
+.intro {
+    margin-bottom: 50px;
+    font-size: 22px; /* Bigger font for readability */
+    color: var(--text-color-light);
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.action-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 350px; /* Set max width for each card */
+    text-align: center;
+    box-shadow: var(--box-shadow-light);
+    transition: all var(--transition-speed);
+}
+
+.action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.action-card h3 {
+    margin: 0 0 15px;
+    font-size: 24px; /* Larger heading */
+    color: var(--text-color-dark);
+}
+
+.action-card p {
+    color: #555;
+    margin: 0 0 20px;
+    font-size: 16px; /* More readable text */
+}
+
+.action-card .btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 5px;
+    font-size: 18px; /* Larger button text */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    cursor: pointer;
+}
+
+.action-card .btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 25px 0; /* More padding for footer */
+    background-color: var(--background-color-dark);
+    color: #fff;
+    margin-top: 50px;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 0;
+    color: #bbb; /* Slightly lighter than white for readability */
+}
+
+/* Token Section Styles */
+#tokenSection {
+    background-color: #e7f7ff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    max-width: 700px; /* Larger width */
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+#jwtToken {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Blockchain & Results Section Styles */
+#chainSection,
+#resultsSection {
+    background-color: #f1f1f1;
+    padding: 30px;
+    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    display: none;
+}
+
+#chainContent,
+#resultsContent {
+    font-size: 16px;
+    color: var(--text-color-dark);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input,
+form select {
+    padding: 12px;
+    font-size: 18px; /* Larger font size for inputs */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+form input:focus,
+form select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+form button {
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    font-size: 18px; /* Larger button text */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+form button:disabled,
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Vote Section Styles */
+#voteChoiceSection {
+    display: none; /* Initially hidden */
+    padding: 25px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 30px auto;
+    max-width: 600px; /* Larger width */
+    text-align: center;
+    box-shadow: var(--box-shadow-light);
+}
+
+#voteChoiceSection label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--text-color-dark);
+}
+
+#voteChoice {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#submitVoteButton {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+#submitVoteButton:hover {
+    background-color: var(--secondary-color);
+}
+
+#voteChoiceSection:hover {
+    background-color: #f0f0f0;
+}
+
+#voteChoice:hover {
+    border-color: var(--primary-color);
+}
+
+/* Desktop Layout Adjustments */
+@media (min-width: 1024px) {
+    .actions {
+        justify-content: space-between;
+    }
+
+    .action-card {
+        width: 30%; /* Make cards take up more space */
+    }
+
+    .action-card h3 {
+        font-size: 24px;
+    }
+
+    .action-card p {
+        font-size: 16px;
+    }
+
+    #tokenSection,
+    #chainSection,
+    #resultsSection {
+        max-width: 80%; /* Adjust max-width for better display */
+    }
+
+    footer {
+        font-size: 16px; /* Larger font for footer on desktop */
+    }
+}
+
